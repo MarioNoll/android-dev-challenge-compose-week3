@@ -91,6 +91,7 @@ fun Login(
 
                     OutlinedTextField(
                         value = viewState.mail,
+                        maxLines = 1,
                         label = {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
@@ -122,6 +123,7 @@ fun Login(
 
                     OutlinedTextField(
                         value = viewState.password,
+                        maxLines = 1,
                         label = {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
