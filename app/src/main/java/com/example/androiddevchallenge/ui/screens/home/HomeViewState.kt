@@ -13,14 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge.ui.screens.home
 
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Shapes
-import androidx.compose.ui.unit.dp
+import androidx.annotation.DrawableRes
 
-val shapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(4.dp),
-    large = RoundedCornerShape(24.dp)
+data class HomeViewState(
+    val items: List<StockItem>
+) {
+    companion object {
+        val DEFAULT = HomeViewState(
+            items = emptyList()
+        )
+    }
+}
+
+data class StockItem(
+    val title: String,
+    val subtitle: String,
+    @DrawableRes
+    val image: Int,
+    val price: String,
+    val change: String,
+    val isPositive: Boolean
 )

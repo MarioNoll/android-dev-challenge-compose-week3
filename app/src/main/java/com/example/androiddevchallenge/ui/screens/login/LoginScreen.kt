@@ -13,14 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge.ui.screens.login
 
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Shapes
-import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.androiddevchallenge.ui.screens.login.composables.Login
 
-val shapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(4.dp),
-    large = RoundedCornerShape(24.dp)
-)
+@Composable
+fun LoginScreen(
+    onLoginClick: () -> Unit
+) {
+    val viewModel = viewModel(LoginViewModel::class.java)
+    val viewState by viewModel.state.collectAsState()
+
+    Login(
+        viewState = viewState,
+        listener = viewModel,
+        onLoginClick = onLoginClick
+    )
+}

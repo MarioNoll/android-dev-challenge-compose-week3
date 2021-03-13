@@ -13,14 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge.ui.screens.home.composables
 
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Shapes
-import androidx.compose.ui.unit.dp
+enum class Filter {
+    Week,
+    ETF,
+    Stock,
+    Funds,
+    Crypto
+}
 
-val shapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(4.dp),
-    large = RoundedCornerShape(24.dp)
-)
+val Filter.text: String
+    get() = when (this) {
+        Filter.Week -> "Week"
+        Filter.ETF -> "ETFs"
+        Filter.Stock -> "Stocks"
+        Filter.Funds -> "Funds"
+        Filter.Crypto -> "Crypto"
+    }
